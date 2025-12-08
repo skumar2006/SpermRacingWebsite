@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Footer from '@/app/components/Footer';
 import { Tv } from 'lucide-react';
@@ -40,6 +41,54 @@ const leagueGothic = League_Gothic({
 export default function HomePage() {
   const fontFamily = monoFont.style.fontFamily;
   const titleFont = leagueGothic.style.fontFamily;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Force video autoplay on mobile devices
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Function to attempt playing the video
+    const attemptPlay = async () => {
+      try {
+        await video.play();
+      } catch (error) {
+        // Autoplay was prevented, try again on user interaction
+        console.log('Autoplay prevented, waiting for user interaction');
+      }
+    };
+
+    // Try to play immediately
+    attemptPlay();
+
+    // Also try on visibility change (when user returns to tab)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        attemptPlay();
+      }
+    };
+
+    // Try on any user interaction as a fallback
+    const handleInteraction = () => {
+      attemptPlay();
+      // Remove listeners after first successful interaction
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener('touchstart', handleInteraction, { passive: true });
+    document.addEventListener('click', handleInteraction);
+    document.addEventListener('scroll', handleInteraction, { passive: true });
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-black text-white flex flex-col overflow-x-hidden">
@@ -47,13 +96,20 @@ export default function HomePage() {
       <section className="relative w-full h-[100dvh] flex flex-col pt-24 pb-0 overflow-hidden border-b border-white/20">
         
         {/* Background Video */}
-        <div className="absolute inset-0 z-0 select-none">
+        <div className="absolute inset-0 z-0 select-none pointer-events-none">
            <video
+             ref={videoRef}
              autoPlay
              loop
              muted
              playsInline
+             preload="auto"
              className="object-cover w-full h-full"
+
+             webkit-playsinline="true"
+             x5-playsinline="true"
+             x5-video-player-type="h5"
+             x5-video-player-fullscreen="true"
            >
              <source src="/landing-page-hero.webm" type="video/webm" />
            </video>
@@ -91,8 +147,8 @@ export default function HomePage() {
                     className="text-6xl md:text-8xl lg:text-[100px] leading-[0.85] tracking-tight uppercase text-[#B0B0B0]"
                     style={{ fontFamily: titleFont }}
                 >
-                    The World's. First.<br />
-                    <span className="text-white">Sperm Race.</span>
+                    The World's<br />
+                    <span className="text-white">Smallest Sport.</span>
                 </h1>
             </div>
 

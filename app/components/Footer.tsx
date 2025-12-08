@@ -33,7 +33,7 @@ export default function Footer() {
   const socialLinks = [
     { name: 'INSTAGRAM', href: 'https://instagram.com/spermracing' },
     { name: 'X', href: 'https://twitter.com/spermracing' },
-    { name: 'YOUTUBE', href: 'https://youtube.com/@spermracing' },
+    { name: 'YOUTUBE', href: 'https://www.youtube.com/@SpermRacingHQ' },
     // { name: 'KICK', href: 'https://kick.com/spermracing' },
     // { name: 'POLYMARKET', href: 'https://polymarket.com' }, 
   ];
