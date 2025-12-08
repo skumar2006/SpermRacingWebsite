@@ -132,7 +132,7 @@ export default function HomePage() {
                                 Get Notified
                             </Button>
                         </DialogTrigger>
-                        <DialogContent className="bg-[#121212] border-white/10 text-white p-8 max-w-md">
+                        <DialogContent className="bg-[#121212] border-0 text-white p-6 md:p-8 w-[calc(100vw-2rem)] md:w-full max-w-[90vw] md:max-w-md">
                              <WaitlistSignupForm />
                         </DialogContent>
                     </Dialog>
@@ -162,7 +162,7 @@ export default function HomePage() {
                         Get Notified
                     </Button>
                 </DialogTrigger>
-                <DialogContent className="bg-[#121212] border-white/10 text-white p-8 max-w-md w-[90%] rounded-sm">
+                <DialogContent className="bg-[#121212] border-0 text-white p-6 md:p-8 w-[calc(100vw-2rem)] md:w-full max-w-[90vw] md:max-w-md rounded-sm">
                      <WaitlistSignupForm />
                 </DialogContent>
             </Dialog>

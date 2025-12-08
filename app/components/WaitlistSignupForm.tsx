@@ -124,11 +124,11 @@ export default function WaitlistSignupForm({
 
   if (status === 'success') {
     return (
-      <div className={`text-center space-y-6 ${className}`}>
+      <div className={`text-center space-y-8 ${className}`}>
         <div className="mx-auto">
-          <div className="mx-auto w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center border border-red-500/30">
+          <div className="mx-auto w-20 h-20 md:w-24 md:h-24 bg-red-500/20 rounded-full flex items-center justify-center">
             <svg
-              className="w-8 h-8 text-red-400"
+              className="w-10 h-10 md:w-12 md:h-12 text-red-400"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -136,16 +136,16 @@ export default function WaitlistSignupForm({
             </svg>
           </div>
         </div>
-        <div>
+        <div className="space-y-4">
           <h1 
-            className="text-center text-2xl md:text-3xl font-medium tracking-tighter text-white mb-2"
-            style={{ fontFamily: titleFont }}
+            className="text-center text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide text-white"
+            style={{ fontFamily: titleFont, letterSpacing: '0.02em' }}
           >
             Welcome to the Race!
           </h1>
           <p 
-            className="mx-auto max-w-[27rem] pt-0.5 text-center text-base text-white/80 uppercase"
-            style={{ fontFamily }}
+            className="mx-auto max-w-[28rem] text-center text-sm md:text-sm text-white/70 uppercase tracking-wider leading-relaxed px-2"
+            style={{ fontFamily, letterSpacing: '0.08em' }}
           >
             You're all set for early access. We'll notify you when it's time to compete.
           </p>
@@ -199,7 +199,7 @@ export default function WaitlistSignupForm({
             onChange={(e) => setName(e.target.value)}
             required
             disabled={status === 'loading'}
-            className="w-full bg-[#0A0A0A] border border-white/20 text-white placeholder:text-gray-400 placeholder:uppercase px-4 py-3 text-sm uppercase tracking-wider focus:outline-none focus:border-white/40 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-[#0A0A0A] border border-white/20 text-white placeholder:text-gray-400 placeholder:uppercase px-4 py-3 text-base md:text-sm uppercase tracking-wider focus:outline-none focus:border-white/40 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ fontFamily }}
           />
 
@@ -210,7 +210,7 @@ export default function WaitlistSignupForm({
             onChange={(e) => setPhone(e.target.value)}
             required
             disabled={status === 'loading'}
-            className="w-full bg-[#0A0A0A] border border-white/20 text-white placeholder:text-gray-400 placeholder:uppercase px-4 py-3 text-sm uppercase tracking-wider focus:outline-none focus:border-white/40 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-[#0A0A0A] border border-white/20 text-white placeholder:text-gray-400 placeholder:uppercase px-4 py-3 text-base md:text-sm uppercase tracking-wider focus:outline-none focus:border-white/40 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ fontFamily }}
           />
 

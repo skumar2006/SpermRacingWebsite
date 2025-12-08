@@ -35,6 +35,12 @@ export const metadata: Metadata = {
   title: 'Sperm Racing',
   description:
     "The world's first sperm race. Microscopic competition. Macroscopic stakes.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   icons: {
     icon: '/icon.png',
   },

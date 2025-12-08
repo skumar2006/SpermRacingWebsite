@@ -89,3 +89,55 @@ body {
 .featured-scroll-smooth:hover {
   animation-play-state: paused;
 }
+
+/* Prevent zoom on input focus for mobile */
+@supports (-webkit-touch-callout: none) {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+  
+  @media (min-width: 768px) {
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea,
+    select {
+      font-size: 14px !important;
+    }
+  }
+}
+
+/* Prevent zoom on dialog open/close and general touch manipulation */
+html {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent zoom on dialog content - ensure all text is at least 16px on mobile */
+@media (max-width: 767px) {
+  [role="dialog"] {
+    font-size: 16px;
+  }
+  
+  [role="dialog"] h1,
+  [role="dialog"] h2,
+  [role="dialog"] h3,
+  [role="dialog"] p {
+    font-size: inherit;
+  }
+  
+  /* Ensure dialog doesn't cause viewport zoom */
+  [role="dialog"] * {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Ensure dialog has proper margins on mobile - doesn't touch screen edges */
+  [role="dialog"] {
+    max-width: calc(100vw - 2rem) !important;
+  }
+}

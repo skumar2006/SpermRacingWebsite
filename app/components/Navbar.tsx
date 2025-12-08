@@ -184,9 +184,23 @@ export default function Navbar() {
       )}
 
       {/* Dialog Component - Rendered independently of the menu */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <Dialog 
+        open={isDialogOpen} 
+        onOpenChange={(open) => {
+          setIsDialogOpen(open);
+          // Reset viewport zoom when dialog closes
+          if (!open) {
+            setTimeout(() => {
+              const viewport = document.querySelector('meta[name="viewport"]');
+              if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
+              }
+            }, 100);
+          }
+        }}
+      >
         <DialogContent 
-            className="bg-black border-white/20 text-white p-8 md:p-12 relative overflow-hidden z-[100]"
+            className="bg-black border-0 text-white p-6 md:p-12 relative overflow-hidden z-[100] w-[calc(100vw-2rem)] md:w-full max-w-[90vw] md:max-w-lg"
             onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <VisuallyHidden>
