@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import motto from '@/public/images/motto.png';
 import fertilityGraph from '@/public/images/fertility-graph.png';
-import racetrack from '@/public/images/racetrack.png';
 import localFont from 'next/font/local';
 
 export const dynamic = 'force-dynamic';
@@ -72,17 +71,15 @@ const ManifestoPage = () => {
               when people hear about it, they ask me the same thing every time:
             </p>
 
-            <div className="pl-5 border-l-2 border-[#cccccc] ml-5">
-              <p>"wait, is this actually happening?"</p>
+            <div className="flex justify-center mt-10 mb-6">
+              <Image
+                src="/images/manifesto-text.png"
+                alt='Text conversation reading "wait, is this actually happening?" and "hell yeah, it is."'
+                width={700}
+                height={300}
+                className="w-full max-w-[600px]"
+              />
             </div>
-
-            <p>
-              ...and the answer is always, "
-              <em>
-                <strong>hell</strong> yeah, it is.
-              </em>
-              "
-            </p>
 
             <h2 className="text-base md:text-lg font-bold mt-6 md:mt-8 mb-3 md:mb-4">
               but here's the thing.
@@ -107,9 +104,9 @@ const ManifestoPage = () => {
             <Image
               src={fertilityGraph}
               alt="male fertility"
-              width={800}
-              height={400}
-              className="w-full my-6 md:my-8"
+              width={550}
+              height={275}
+              className="w-full max-w-[550px] mx-auto my-6 md:my-8"
             />
 
             <p>
@@ -146,13 +143,18 @@ const ManifestoPage = () => {
             </h2>
             <p>two competitors. two samples. one microscopic finish line.</p>
 
-            <Image
-              src={racetrack}
-              alt="microscopic racetrack"
-              width={800}
-              height={400}
-              className="w-full max-w-[800px] mx-auto my-6 md:my-8"
-            />
+            <div className="w-full max-w-[800px] mx-auto my-6 md:my-8">
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/e5i2HJr8-pA"
+                  title="Sperm Racing Racetrack"
+                  className="absolute inset-0 h-full w-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
 
             <h3 className="text-base md:text-lg font-bold">
               how the race works:
@@ -244,7 +246,7 @@ const ManifestoPage = () => {
             <p className="text-center lg:text-right italic mt-8">
               - eric,{' '}
               <a
-                href="https://x.com/spermracing"
+                href="https://www.instagram.com/spermracing/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:no-underline"
