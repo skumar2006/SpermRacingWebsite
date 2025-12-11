@@ -31,7 +31,7 @@ export default function Navbar() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const navLinks = [
-    { name: 'LIVESTREAM', href: '/races' },
+    // { name: 'LIVESTREAM', href: '/races' },
     { name: 'MANIFESTO', href: '/manifesto' },
     { name: 'PROCESS', href: '/methodology' },
     // { name: 'ATHLETES', href: '/team' },
