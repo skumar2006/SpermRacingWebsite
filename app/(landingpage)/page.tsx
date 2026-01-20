@@ -238,7 +238,7 @@ export default function HomePage() {
                     Last Race: <span className="text-white">USC VS UCLA 2025</span>
                 </div>
                 <div className="md:text-center">
-                    Race Distance: <span className="text-white">3800nM</span>
+                    Race Distance: <span className="text-white">3800μm</span>
                 </div>
                 <div className="md:text-center">
                     Number of Laps: <span className="text-white">1</span>

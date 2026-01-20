@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { League_Gothic } from 'next/font/google';
 import localFont from 'next/font/local';
+import Image from 'next/image';
 import Footer from '@/app/components/Footer';
 
 // Load Fonts
@@ -164,6 +165,42 @@ export default function MethodologyPage() {
                         How It<br/>Works
                     </h1>
                 </div>
+        </div>
+
+        {/* Technology Partners Section */}
+        <div className="w-full max-w-[1400px] mx-auto mt-16 md:mt-24 mb-8">
+          <div className="flex flex-col items-center">
+            {/* Section Header */}
+            <div className="flex items-center gap-3 mb-8 md:mb-12">
+              <div className="w-1.5 h-1.5 bg-[#FF361D]" />
+              <h2 
+                className="text-xs md:text-sm tracking-[0.2em] uppercase text-gray-400 font-bold"
+                style={{ fontFamily }}
+              >
+                Technology Partners
+              </h2>
+              <div className="w-1.5 h-1.5 bg-[#FF361D]" />
+            </div>
+
+            {/* Partner Logo */}
+            <div className="flex items-center justify-center">
+              <a 
+                href="http://cygnusphoton.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative transition-all duration-300 hover:scale-105"
+              >
+                <div className="relative w-[280px] md:w-[400px] h-[160px] md:h-[225px] bg-white/5 border border-white/10 rounded-lg p-6 md:p-8 flex items-center justify-center hover:border-white/20 transition-colors">
+                  <Image
+                    src="/logos/cygnus-photonics.png"
+                    alt="Cygnus Photonics - Light Processing"
+                    fill
+                    className="object-contain p-4 md:p-6 invert"
+                  />
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />
